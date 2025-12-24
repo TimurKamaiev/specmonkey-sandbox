@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>SpecMonkey – Test Case Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <header class="header">
+        <div class="brand">
+            <img src="logo.png" alt="SpecMonkey" class="logo" />
+        </div>
+
+        <div class="headerRight">
+            <div class="orgBox" title="Enter your organization name to start">
+                <span class="orgLabel">Organization</span>
+                <input id="orgInput" type="text" placeholder="Enter org name" />
+            </div>
+
+            <div class="remaining" title="Number of remaining test cases for your organization">
+                Remaining: <span id="remainingCount">–</span>
+            </div>
+
+            <button id="newTaskBtn" class="ghostBtn" type="button">New Task</button>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="card">
+            <div class="field">
+                <label for="taskTitleInput">Task title <span class="req">*</span></label>
+                <input id="taskTitleInput" type="text" placeholder="e.g., Implement Add to Cart functionality" />
+            </div>
+
+            <div class="field">
+                <label for="taskDescriptionInput">Task description <span class="req">*</span></label>
+                <textarea id="taskDescriptionInput"
+                          placeholder="Describe the task in plain text..."></textarea>
+            </div>
+
+            <div class="field">
+                <div class="labelRow">
+                    <label>Acceptance criteria <span class="opt">(optional)</span></label>
+                    <button id="addCriteriaBtn" class="iconBtn" type="button" title="Add criteria">+</button>
+                </div>
+
+                <div id="criteriaList" class="criteriaList"></div>
+            </div>
+
+            <div class="actions">
+                <button id="generateBtn" class="primaryBtn" type="button">Generate test cases</button>
+
+                <div class="countBox" title="Max 10">
+                    <span>Additional:</span>
+                    <input id="additionalCountInput" type="number" min="1" max="10" value="10" />
+                </div>
+            </div>
+
+            <div id="status" class="status"></div>
+        </section>
+
+        <section class="card">
+            <div class="sectionTitle">Test cases</div>
+            <div id="results" class="results emptyState">No test cases yet</div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
